@@ -1,0 +1,37 @@
+<%= form_for(@serie) do |f| %>
+  <% if @serie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@serie.errors.count, "error") %> prohibited this serie from being saved:</h2>
+
+      <ul>
+      <% @serie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :temporadas %><br>
+    <%= f.number_field :temporadas %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :imagen %><br>
+    <%= f.text_field :imagen %>
+  </div>
+  <div class="field">
+    <%= f.label :en_transmision %><br>
+    <%= f.check_box :en_transmision %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
