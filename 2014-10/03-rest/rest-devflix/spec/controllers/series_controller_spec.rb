@@ -15,4 +15,10 @@ describe SeriesController do
     json = JSON.parse(response.body)
     expect(json['nombre']).to eq 'Bates Motel'
   end
+  it 'POST create' do
+    post :create, nombre: 'Bates Motel'
+    expect(response.status).to eq 201
+    json = JSON.parse(response.body)
+    expect(json['nombre']).to eq 'Bates Motel'
+  end
 end
