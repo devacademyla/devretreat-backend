@@ -8,4 +8,11 @@ describe SeriesController do
     json = JSON.parse(response.body)
     expect(json.length).to eq 2
   end
+  it 'GET show' do
+    Serie.create(nombre: 'Bates Motel')
+    get :show, id: 1
+    expect(response.status).to eq 200
+    json = JSON.parse(response.body)
+    expect(json['nombre']).to eq 'Bates Motel'
+  end
 end

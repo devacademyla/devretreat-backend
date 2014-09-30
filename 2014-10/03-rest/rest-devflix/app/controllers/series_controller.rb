@@ -3,4 +3,8 @@ class SeriesController < ApplicationController
     @series = Serie.all
     render json: @series
   end
+  def show
+    @serie = Serie.find(params[:id])
+    render json: @serie
+  end
 end
