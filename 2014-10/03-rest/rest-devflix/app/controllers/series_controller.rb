@@ -16,4 +16,17 @@ class SeriesController < ApplicationController
       render json: @serie.errors
     end
   end
+  def update
+    @serie = Serie.find(params[:id])
+    if @serie.update(nombre: params[:nombre], descripcion: params[:descripcion], en_transmision: params[:en_transmision])
+      render json: @serie
+    else
+      render json: @serie.errors
+    end
+  end
+  def destroy
+    @serie = Serie.find(params[:id])
+    @serie.delete
+    render json: Serie.all
+  end
 end

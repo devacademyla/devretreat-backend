@@ -21,4 +21,16 @@ describe SeriesController do
     json = JSON.parse(response.body)
     expect(json['nombre']).to eq 'Bates Motel'
   end
+  it 'PUT update' do
+    Serie.create(nombre: 'The Following')
+    put :update, id: 1, nombre: 'Bates Motel'
+    expect(response.status).to eq 200
+    json = JSON.parse(response.body)
+    expect(json['nombre']).to eq 'Bates Motel'
+  end
+  it 'DELETE destroy' do
+    Serie.create(nombre: 'The Following')
+    delete :destroy, id: 1
+    expect(response.status).to eq 200
+  end
 end
