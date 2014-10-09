@@ -1,5 +1,5 @@
 class SeriesController < ApplicationController
   def index
-    render nothing: :true, status: :ok
+    render json: Serie.all
   end
 end
