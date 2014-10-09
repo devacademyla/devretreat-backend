@@ -25,4 +25,10 @@ describe SeriesController do
       expect(json['nombre']).to eq serie.nombre
     end
   end
+  describe 'POST create' do
+    it 'created' do
+      post :create, nombre: 'Bates Motel'
+      expect(response.status).to eq 201
+    end
+  end
 end
