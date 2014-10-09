@@ -6,4 +6,8 @@ class SeriesController < ApplicationController
   def show
     render json: Serie.find(params[:id])
   end
+  def create
+    serie = Serie.create(nombre: params[:nombre])
+    render json: serie, status: :created
+  end
 end
