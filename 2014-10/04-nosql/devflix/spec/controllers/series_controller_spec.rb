@@ -16,4 +16,11 @@ describe SeriesController do
       expect(json.size).to eq 1
     end
   end
+  describe 'GET show' do
+    it 'ok' do
+      serie = Serie.create(nombre: 'Bates Motel')
+      get :show, id: serie._id
+      expect(response.status).to eq 200
+    end
+  end
 end
