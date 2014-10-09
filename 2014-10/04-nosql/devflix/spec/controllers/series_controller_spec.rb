@@ -17,10 +17,12 @@ describe SeriesController do
     end
   end
   describe 'GET show' do
-    it 'ok' do
-      serie = Serie.create(nombre: 'Bates Motel')
+    it 'GET show' do
+      serie = Serie.create(nombre: 'The Following')
       get :show, id: serie._id
-      expect(response.status).to eq 200
+      expect(response).to have_http_status(:ok)
+      json = JSON.parse(response.body)
+      expect(json['nombre']).to eq serie.nombre
     end
   end
 end
