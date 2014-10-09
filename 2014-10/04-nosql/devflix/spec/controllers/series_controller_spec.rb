@@ -28,7 +28,9 @@ describe SeriesController do
   describe 'POST create' do
     it 'created' do
       post :create, nombre: 'Bates Motel'
-      expect(response.status).to eq 201
+      expect(response).to have_http_status(:created)
+      json = JSON.parse(response.body)
+      expect(json['nombre']).to eq 'Bates Motel'
     end
   end
 end
