@@ -4,5 +4,6 @@ class ProductController < ApplicationController
   end
 
   def show
+    render json: Product.find(params[:id])
   end
 end

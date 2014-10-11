@@ -11,7 +11,8 @@ RSpec.describe ProductController, :type => :controller do
 
   describe "GET show" do
     it "returns http success" do
-      get :show
+      product = Product.create(name: 'Apple', price: 12)
+      get :show, id: product._id
       expect(response).to have_http_status(:success)
     end
   end
