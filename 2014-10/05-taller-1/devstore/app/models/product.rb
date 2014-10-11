@@ -1,6 +1,8 @@
 class Product
   include Mongoid::Document
   field :name, type: String
-  field :descripcion, type: String
+  field :description, type: String
   field :price, type: Float
+
+  embeds_one :details
 end
